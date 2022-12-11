@@ -15,6 +15,7 @@ export const crearUsuario = async(req, res) => {
 
         const usuario = new Usuario( req.body );
 
+       
         //Encriptar contraseña
 
         const salt = bcrypt.genSaltSync();
@@ -47,6 +48,8 @@ export const loginUsuario = async(req, res) => {
 
     try {
         const usuario = await Usuario.findOne({ email });
+       
+        
         
 
         //Validar contraseña
@@ -86,6 +89,10 @@ export const revalidarToken = async(req, res) => {
 
     res.json({
         ok: true,
-        token
+        token,
+        usuario: {
+            uid,
+            name
+        }
     })
 }
