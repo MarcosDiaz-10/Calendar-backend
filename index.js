@@ -1,7 +1,15 @@
+import path from 'path';
+import {fileURLToPath} from 'url';
 import express from 'express';
 import cors from 'cors';
 import { config } from 'dotenv';
 config();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+
+
 
 import  authRouter  from './routes/auth.routes.js'
 import  eventsRouter  from './routes/events.routes.js'
@@ -28,7 +36,7 @@ app.use(express.json());
 app.use( '/api/auth', authRouter);
 app.use( '/api/events', eventsRouter );
 
-app.get( '*', (req, res) => {
+app.use( '*', (req, res) => {
     res.sendFile( __dirname + '/public/index.html');
 })
 
