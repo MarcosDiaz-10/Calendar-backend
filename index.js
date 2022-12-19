@@ -28,6 +28,10 @@ app.use(express.json());
 app.use( '/api/auth', authRouter);
 app.use( '/api/events', eventsRouter );
 
+app.get( '*', (req, res) => {
+    res.sendFile( __dirname + '/public/index.html');
+})
+
 //TODO: CRUD Eventos
 
 //Escuchar el servidor
