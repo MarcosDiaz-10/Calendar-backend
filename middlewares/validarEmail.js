@@ -6,6 +6,8 @@ export const validarEmailExiste = async( req, res, next) => {
 
     let usuario = await Usuario.findOne({  email });
 
+    console.log( email )
+
     if( usuario ) {
         return res.status(400).json({
             ok: false,

@@ -9,7 +9,7 @@ export const crearUsuario = async(req, res) => {
    
     const { name,email, password } = req.body;
 
-
+ 
     try {
 
 
@@ -45,7 +45,6 @@ export const crearUsuario = async(req, res) => {
 
 export const loginUsuario = async(req, res) => {
     const {  email, password } = req.body;
-
     try {
         const usuario = await Usuario.findOne({ email });
        
