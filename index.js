@@ -35,9 +35,9 @@ app.use(express.json());
 // Rutas
 app.use( '/api/auth/*', authRouter);
 app.use( '/api/events/*', eventsRouter );
-app.get('*', (req, res) => {
-    res.sendFile( __dirname + '/public/index.html')
-})
+// app.get('*', (req, res) => {
+//     res.sendFile( __dirname + '/public/index.html')
+// })
 
 app.use( '*', (req, res) => {
     res.sendFile( __dirname + '/public/index.html');
